@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from '../../../assets/images/travel-bro-logo.png';
 
 const Header=()=> {
@@ -16,7 +17,9 @@ const Header=()=> {
                 alt=""
                 className="h-14 w-14 rounded-full cursor-pointer"
               />
-              <p className="text-3xl text-orange-900 font-semibold">TravelBro</p>
+              <p className="text-3xl text-orange-900 font-semibold">
+                TravelBro
+              </p>
               {/* </h2> */}
             </h1>
             <div className="md:hidden">
@@ -65,7 +68,7 @@ const Header=()=> {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 cursor-pointer">
               <li className="text-white hover:text-indigo-200">
-                <p href="">Home</p>
+                <Link to='/'>Home</Link>
               </li>
               <li className="text-white hover:text-indigo-200">
                 <p href="">Blog</p>
@@ -81,9 +84,9 @@ const Header=()=> {
             <div className="mt-3 space-y-2 lg:hidden md:inline-block">
               <p
                 href=""
-                className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
+                className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 hover:bg-gray-800  rounded-md shadow"
               >
-                Sign in
+                <Link to="/login">Login</Link>
               </p>
             </div>
           </div>
@@ -91,9 +94,9 @@ const Header=()=> {
         <div className="hidden space-x-2 md:inline-block">
           <p
             href=""
-            className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 cursor-pointer"
+            className="px-4 py-2 text-white rounded-md shadow hover:bg-gray-800 cursor-pointer"
           >
-            Login
+            <Link to="/login">Login</Link>
           </p>
         </div>
       </div>
