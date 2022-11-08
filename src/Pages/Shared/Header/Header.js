@@ -5,13 +5,18 @@ const Header=()=> {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full bg-purple-700 shadow text-2xl py-3">
+    <nav className="w-full bg-green-400 shadow text-2xl py-3">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
-          <p href="">
+            <p href="" className="flex gap-2 items-center">
               {/* <h2 className="text-2xl font-bold text-white"> */}
-                <img src={Logo} alt="" className="h-14 w-14 rounded-full cursor-pointer"/>
+              <img
+                src={Logo}
+                alt=""
+                className="h-14 w-14 rounded-full cursor-pointer"
+              />
+              <p className="text-3xl text-orange-900 font-semibold">TravelBro</p>
               {/* </h2> */}
             </p>
             <div className="md:hidden">
@@ -60,38 +65,36 @@ const Header=()=> {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 cursor-pointer">
               <li className="text-white hover:text-indigo-200">
-              <p href="">Home</p>
+                <p href="">Home</p>
               </li>
               <li className="text-white hover:text-indigo-200">
-              <p href="">Blog</p>
+                <p href="">Blog</p>
               </li>
               <li className="text-white hover:text-indigo-200">
-              <p href="">About</p>
+                <p href="">About</p>
               </li>
               <li className="text-white hover:text-indigo-200">
-              <p href="">Contact</p>
+                <p href="">Contact</p>
               </li>
             </ul>
 
             <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-            <p
+              <p
                 href=""
                 className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
               >
                 Sign in
               </p>
-           
             </div>
           </div>
         </div>
         <div className="hidden space-x-2 md:inline-block">
-        <p
+          <p
             href=""
             className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800 cursor-pointer"
           >
             Login
           </p>
-      
         </div>
       </div>
     </nav>

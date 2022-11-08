@@ -5,12 +5,16 @@ import Footer from '../Pages/Shared/Footer/Footer';
 
 const Main = () => {
     return (
-        <div>
-            <Header></Header>
+      <div>
+        {/* <Header></Header>
             <Outlet></Outlet>
-            <Footer></Footer>
-            
+            <Footer></Footer> */}
+        <div className="flex flex-col h-screen justify-between">
+          <Header className="h-10">Header</Header>
+          <Outlet className="mb-auto h-10">Content</Outlet>
+          <Footer className="h-10">Footer</Footer>
         </div>
+      </div>
     );
 };
 
