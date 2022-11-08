@@ -1,25 +1,60 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import signupImg from '../../../assets/images/signup.jpg';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+        console.log(name,email, password, confirmPassword);
+
+         if (password.length < 6) {
+           setError("Password should be at least 6 Characters");
+           return;
+         }
+         if (password !== confirmPassword) {
+           setError("Password did not match");
+           return;
+         }
+
+         createUser(email, password)
+         .then(result => {
+            const user = result.user;
+            console.log(user);
+            setError('');
+            form.reset();
+            
+         })
+         .catch(e=> {
+          console.error(e);
+          setError(e.message);
+         });
+    }
+
     return (
-      <div class="flex items-center min-h-screen bg-gray-50">
-        <div class="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
-          <div class="flex flex-col md:flex-row">
-            <div class="h-46 w-full md:h-auto md:w-1/2">
+      <div className="flex items-center min-h-screen bg-gray-50">
+        <div className="flex-1 h-full max-w-4xl mx-auto bg-white rounded-lg shadow-xl">
+          <div className="flex flex-col md:flex-row">
+            <div className="h-46 w-full md:h-auto md:w-1/2">
               <img
-                class="object-cover w-full h-full"
+                className="object-cover w-full h-full"
                 src={signupImg}
                 alt="img"
               />
             </div>
-            <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-              <div class="w-full">
-                <div class="flex justify-center">
+            <div className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+              <div className="w-full">
+                <div className="flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-20 h-20 text-blue-600"
+                    className="w-20 h-20 text-blue-600"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -34,59 +69,61 @@ const Register = () => {
                     />
                   </svg>
                 </div>
-                <form>
-                  <h1 class="mb-4 text-2xl font-bold text-center text-gray-700">
+                <form onSubmit={handleSubmit}>
+                  <h1 className="mb-4 text-2xl font-bold text-center text-gray-700">
                     Sign up
                   </h1>
                   <div>
-                    <label class="block text-sm">Name</label>
+                    <label className="block text-sm">Name</label>
                     <input
                       type="text"
                       name="name"
-                      class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                      className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                       placeholder="Name"
                     />
                   </div>
-                  <div class="mt-4">
-                    <label class="block text-sm">Email</label>
+                  <div className="mt-4">
+                    <label className="block text-sm">Email</label>
                     <input
                       type="email"
                       name="email"
-                      class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                      className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                       placeholder="Email Address"
                     />
                   </div>
                   <div>
-                    <label class="block mt-4 text-sm">Password</label>
+                    <label className="block mt-4 text-sm">Password</label>
                     <input
-                      class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                      className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                       placeholder="Password"
                       type="password"
                       name="password"
                     />
                   </div>
                   <div>
-                    <label class="block mt-4 text-sm">Confirm Password</label>
+                    <label className="block mt-4 text-sm">Confirm Password</label>
                     <input
-                      class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
+                      className="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600"
                       placeholder="Confirm Password"
                       type="password"
                       name="confirmPassword"
                     />
                   </div>
                   <button
-                    class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
+                    className="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue"
                     href="#"
+                    type='submit'
                   >
                     Sign up
                   </button>
+                  <p className='text-red-600'> {error} </p>
                 </form>
 
-                <div class="mt-4 text-center">
-                  <h3 class="text-sm">
+                <div className="mt-4 text-center">
+                  <h3 className="text-sm">
                     Already have an account?
                     <span>
-                      <Link to="/login" class="text-blue-600 hover:underline">
+                      <Link to="/login" className="text-blue-600 hover:underline">
                         LogIn.
                       </Link>
                     </span>
