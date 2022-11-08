@@ -11,7 +11,7 @@ const Main = () => {
             <Footer></Footer> */}
         <div className="flex flex-col h-screen justify-between">
           <Header className="h-10">Header</Header>
-          <Outlet className="mb-auto h-10">Content</Outlet>
+          <Outlet></Outlet>
           <Footer className="h-10">Footer</Footer>
         </div>
       </div>
