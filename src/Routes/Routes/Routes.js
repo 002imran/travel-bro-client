@@ -1,8 +1,8 @@
 import {createBrowserRouter} from "react-router-dom";
 import Main from "../../layout/Main";
+import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
-import Slider from "../../Pages/Slider/Slider";
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -10,7 +10,7 @@ export const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Slider></Slider>,
+        element: <Home></Home>,
       },
       {
         path:'/login',
