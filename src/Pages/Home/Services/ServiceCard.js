@@ -19,6 +19,7 @@ const ServiceCard = ({ service }) => {
         <p className="text-lg font-semibold text-orange-600">{description}</p>
       </div>
     </div>
+    
   );
 };
 export default ServiceCard;
