@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from '../../../assets/images/travel-bro-logo.png';
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Header=()=> {
   const [navbar, setNavbar] = useState(false);
+  const {user, logOut} = useContext(AuthContext);
+
+  
+     const handleLogOut = () => {
+       logOut()
+         .then(() => {})
+         .catch((error) => console.error(error));
+     };
 
   return (
     <nav className="w-full bg-green-400 shadow text-2xl py-3">
@@ -68,7 +77,7 @@ const Header=()=> {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 cursor-pointer">
               <li className="text-white hover:text-indigo-200">
-                <Link to='/'>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li className="text-white hover:text-indigo-200">
                 <p href="">Blog</p>
@@ -80,23 +89,33 @@ const Header=()=> {
                 <p href="">Contact</p>
               </li>
             </ul>
-
-            <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-              <p
-                href=""
-                className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 hover:bg-gray-800  rounded-md shadow"
-              >
-                <Link to="/login">Login</Link>
-              </p>
-            </div>
           </div>
         </div>
+
+       
+
         <div className="hidden space-x-2 md:inline-block">
           <p
             href=""
             className="px-4 py-2 text-white rounded-md shadow hover:bg-gray-800 cursor-pointer"
           >
-            <Link to="/login">Login</Link>
+            <Link to="/login">
+              {/* Login */}
+              {user ? (
+                <>
+                  <button
+                    className="text-decoration-none text-white bg-dark border-0"
+                    onClick={handleLogOut}
+                  >
+                    Log out
+                  </button>
+                </>
+              ) : (
+                <Link to="/login" className="text-decoration-none text-white">
+                  Login
+                </Link>
+              )}
+            </Link>
           </p>
         </div>
       </div>
