@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import signupImg from '../../../assets/images/signup.jpg';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
+    useTitle('register')
     const {createUser} = useContext(AuthContext);
     const [error, setError] = useState('');
     const handleSubmit = (event) =>{

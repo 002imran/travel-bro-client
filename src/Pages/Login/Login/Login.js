@@ -4,8 +4,10 @@ import loginImg from "../../../assets/images/login.jpg";
 import {FcGoogle} from 'react-icons/fc'
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
+       useTitle('login');
        const { signIn, providerLogin} = useContext(AuthContext);
        const [error, setError] = useState('');
        const navigate = useNavigate();

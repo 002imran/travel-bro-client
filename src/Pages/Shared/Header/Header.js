@@ -80,7 +80,7 @@ const Header=()=> {
                 <Link to="/">Home</Link>
               </li>
               <li className="text-white hover:text-indigo-200">
-                <p href="">Blog</p>
+                <Link to="/blog">Blog</Link>
               </li>
               <li className="text-white hover:text-indigo-200">
                 <p href="">About</p>
