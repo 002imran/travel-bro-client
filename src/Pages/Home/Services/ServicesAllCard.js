@@ -31,10 +31,8 @@ const ServicesAllCard = ({ serviceAll }) => {
       <div className="card-body items-center text-center">
         <h2 className="card-title text-xl font-bold text-gray-800">{title}</h2>
         <p className="text-lg font-semibold text-orange-600">${price}.00</p>
-        {/* <p className="text-lg font-semibold text-orange-600">{description}</p> */}
         <p className="text-lg font-semibold text-orange-600">
-          {/* {description} */}
-          {description.length > 100
+           {description.length > 100
             ? description.slice(0, 100) + "..."
             : description}
         </p>

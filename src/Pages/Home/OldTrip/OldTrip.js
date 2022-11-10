@@ -5,7 +5,7 @@ const OldTrip = () => {
   const [trips, setTrip] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/oldTrip")
+    fetch("https://travel-server-002imran.vercel.app/oldTrip")
       .then((res) => res.json())
       .then((data) => setTrip(data));
   }, []);

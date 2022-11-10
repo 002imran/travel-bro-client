@@ -6,20 +6,13 @@ const ServicesAll = () => {
   const [servicesAll, setServicesAll] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/services/all")
+    fetch("https://travel-server-002imran.vercel.app/services/all")
       .then((res) => res.json())
       .then((data) => setServicesAll(data));
-    // .then((data)=> console.log('all services together',data))
   }, []);
 
   return (
-    // <div>
-    //     <h2>Services together :::</h2>
-
-    //     {servicesAll.map((serviceAll) => (
-    //       <ServicesAllCard key={serviceAll._id} serviceAll={serviceAll}></ServicesAllCard>
-    //     ))}
-    //   </div>
+    
 
     <div>
       <div className="text-center my-5 mb-6">

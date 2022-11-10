@@ -20,7 +20,6 @@ const Header=()=> {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <h1 href="" className="flex gap-2 items-center">
-              {/* <h2 className="text-2xl font-bold text-white"> */}
               <img
                 src={Logo}
                 alt=""
