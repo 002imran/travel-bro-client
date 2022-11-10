@@ -12,7 +12,7 @@ const Home = () => {
         {/* <ServiceCard /> */}
         <Services />
 
-        <Link to="/servicesAll">
+        <Link to="/services">
           {/* <ServicesAll> */}
                See All
 

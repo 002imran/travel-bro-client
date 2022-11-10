@@ -1,14 +1,25 @@
 import React from "react";
-import "react-photo-view/dist/react-photo-view.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import { Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
-
-const ServicesAllCard = ({ serviceAll }) => {
-  console.log("from all service card", serviceAll);
-  const { img, price, title, description,_id } = serviceAll;
-
+const ServiceDetails = () => {
+  const detailsInformation = useLoaderData();
+  const { img, price, title, description,_id } = detailsInformation;
+  console.log(detailsInformation);
   return (
+    // <div className="row row-cols-1 row-cols-md-8 row-cols-lg-12 g-3 pb-3">
+    //   <div className="col">
+    //     <div className="card gap-2 me-5">
+    //       <h5 className="card-title text-center my-3 fs-3">{title}</h5>
+
+    //       <div className="card-body">
+    //         <p className="card-text">{details}</p>
+    //         <h2>This is service area</h2>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+
     <div className="card w-4/3 bg-base-100 shadow-xl m-10 ">
       <div className="m-5">
         <figure className="px-10 pt-10 bg-slate-200">
@@ -33,21 +44,22 @@ const ServicesAllCard = ({ serviceAll }) => {
         <p className="text-lg font-semibold text-orange-600">${price}.00</p>
         {/* <p className="text-lg font-semibold text-orange-600">{description}</p> */}
         <p className="text-lg font-semibold text-orange-600">
-          {/* {description} */}
-          {description.length > 100
+          {description}
+          {/* {description.length > 100
             ? description.slice(0, 100) + "..."
-            : description}
+            : description} */}
         </p>
-
+{/* 
         <button
           type="button"
           class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
           onClick={description}
         >
           <Link to={`/servicesDetails/${_id}`}> View Details</Link>
-        </button>
+        </button> */}
       </div>
     </div>
   );
 };
-export default ServicesAllCard;
+
+export default ServiceDetails;
