@@ -7,7 +7,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
-       useTitle('login');
+       useTitle('login');//dynamically page name changed
        const { signIn, providerLogin} = useContext(AuthContext);
        const [error, setError] = useState('');
        const navigate = useNavigate();

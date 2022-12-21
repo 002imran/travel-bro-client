@@ -34,7 +34,7 @@ const UpcomingServices = () => {
               >
                 <div className="font-semibold text-2xl">Travel Accesories</div>
                 <span className="text-xl font-light text-gray-500 dark:text-gray-400">
-                  Some Quality Travel Accerosies Will add so soon,You ca buy
+                  Some Quality Travel Accerosies Will add so soon,You can buy
                   your favourite tour Accerosies from here.
                 </span>
               </p>
