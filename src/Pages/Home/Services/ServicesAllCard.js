@@ -22,7 +22,7 @@ const ServicesAllCard = ({ serviceAll }) => {
           >
             <div>
               <PhotoView src={img}>
-                <img src={img} style={{ objectFit: "cover" }} alt="" />
+                <img src={img} style={{ objectFit: "cover" }} alt="" className="h-56 w-full"/>
               </PhotoView>
             </div>
           </PhotoProvider>
